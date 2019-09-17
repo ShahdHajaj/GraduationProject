@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+import android.content.Context;
 
 public class signUp extends Activity {
     EditText user, password,age;
@@ -14,21 +16,23 @@ public class signUp extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
-        age = (EditText) findViewById(R.id.Agefiled);
-        user = (EditText) findViewById(R.id.Agefiled);
-        password = (EditText) findViewById(R.id.passwordT);
-        gender = (RadioGroup) findViewById(R.id.genderfield);
-        bmi = (RadioGroup) findViewById(R.id.bmifield);
-        smoking = (RadioGroup) findViewById(R.id.smokingfield);
+        age =      findViewById(R.id.Agefiled);
+        user =     findViewById(R.id.userfield2);
+        password = findViewById(R.id.passfield);
+        gender =   findViewById(R.id.genderfield);
+        bmi =      findViewById(R.id.bmifield);
+        smoking =  findViewById(R.id.smokingfield);
 
-        Button sign = (Button) findViewById(R.id.signup2);
+        Button sign = findViewById(R.id.signup2);
         sign.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (!(age.getText().toString().matches("") || user.getText().toString().matches("")|| password.getText().toString().matches("") )) {
+                Context context = getApplicationContext();
                 CharSequence text = "Fill all Info Please";
-
-
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
     }
 });
