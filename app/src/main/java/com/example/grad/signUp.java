@@ -9,7 +9,9 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.content.Context;
 
-public class signUp extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class signUp extends AppCompatActivity {
     EditText user, password,age;
     RadioGroup bmi,smoking,gender;
     @Override

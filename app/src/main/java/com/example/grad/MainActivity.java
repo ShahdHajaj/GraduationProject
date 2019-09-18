@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends Activity{
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +18,7 @@ public class MainActivity extends Activity{
             @Override
             public void onClick(View v) {
                 Intent int1 = new Intent(MainActivity.this,signUp.class);
-                startActivity(int1);
+                MainActivity.this.startActivity(int1);
             }
            });
     }
