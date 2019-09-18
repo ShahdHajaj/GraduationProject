@@ -1,6 +1,5 @@
 package com.example.grad;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,12 +7,12 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.content.Context;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class signUp extends AppCompatActivity {
     EditText user, password,age;
     RadioGroup bmi,smoking,gender;
+    Button sign;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +24,7 @@ public class signUp extends AppCompatActivity {
         bmi =      findViewById(R.id.bmifield);
         smoking =  findViewById(R.id.smokingfield);
 
-        Button sign = findViewById(R.id.signup2);
+        sign =(Button) findViewById(R.id.signup2);
         sign.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

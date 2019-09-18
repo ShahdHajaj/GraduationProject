@@ -61,10 +61,10 @@
         android:layout_alignParentTop="true"
 
         android:layout_alignParentRight="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="561dp"
-        android:layout_marginRight="278dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="508dp"
+        android:layout_marginRight="290dp"
         android:text="Sign Up" />
 
     <RadioGroup
