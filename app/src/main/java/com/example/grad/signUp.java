@@ -1,18 +1,23 @@
 package com.example.grad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class signUp extends AppCompatActivity {
     EditText user, password,age;
-    RadioGroup bmi,smoking,gender;
+   private RadioGroup smoking,gender;
     Button sign;
+    Spinner bmi;
+   private String  gen,smok;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,16 +26,63 @@ public class signUp extends AppCompatActivity {
         user =     findViewById(R.id.userfield2);
         password = findViewById(R.id.passfield);
         gender =   findViewById(R.id.genderfield);
-        bmi =      findViewById(R.id.bmifield);
         smoking =  findViewById(R.id.smokingfield);
-
+        String[] options = {"Under", "Healthy","Over","Obese"};
+        bmi = (Spinner) findViewById(R.id.bmifield);
+        ArrayAdapter objGenderArr = new ArrayAdapter(this, android.R.layout.simple_spinner_item, options);
+        bmi.setAdapter(objGenderArr);
         sign =(Button) findViewById(R.id.signup2);
+        gender = (RadioGroup) findViewById(R.id.genderfield);
+        smoking = (RadioGroup) findViewById(R.id.smokingfield);
+
+        gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup RadioGroup, int checkedId) {
+
+                if (checkedId == R.id.Male) {
+                    gen = "Male";
+
+                } else if (checkedId == R.id.Female) {
+                    gen="Female";
+                }
+                else {
+                    gen="";
+                }
+            }
+        });
+        smoking.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup RadioGroup, int checkedId) {
+
+                if (checkedId == R.id.yes) {
+                    smok = "Yes";
+
+                } else if (checkedId == R.id.no) {
+                    smok="No";
+                }
+                else   {
+                    smok="";
+                }
+            }
+        });
+
+
         sign.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (!(age.getText().toString().matches("") || user.getText().toString().matches("")|| password.getText().toString().matches("") )) {
+            if (!(age.getText().toString().matches("") || user.getText().toString().matches("")|| password.getText().toString().matches("") )||bmi.getSelectedItem().toString().matches("") ||gen==""||smok=="") {
                 Context context = getApplicationContext();
-                CharSequence text = "Fill all Info Please";
+                CharSequence text = "Sign up successfully";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                Intent int1 = new Intent(signUp.this,MainActivity.class);
+                signUp.this.startActivity(int1);
+
+            }
+            else {
+                Context context = getApplicationContext();
+                CharSequence text = "Fill all Information";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();

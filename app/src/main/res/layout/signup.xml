@@ -61,10 +61,10 @@
         android:layout_alignParentTop="true"
 
         android:layout_alignParentRight="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="508dp"
-        android:layout_marginRight="290dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="447dp"
+        android:layout_marginRight="198dp"
         android:text="Sign Up" />
 
     <RadioGroup
@@ -110,44 +110,6 @@
         android:layout_marginRight="327dp"
         android:text="BMI" />
 
-    <RadioGroup
-        android:id="@+id/bmifield"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="161dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="185dp"
-        android:layout_marginRight="50dp">
-
-        <RadioButton
-            android:id="@+id/Underfield"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Under" />
-
-        <RadioButton
-            android:id="@+id/healthyfield"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Healthy" />
-
-        <RadioButton
-            android:id="@+id/overfield"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Over" />
-
-        <RadioButton
-            android:id="@+id/obesefield"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Obese" />
-    </RadioGroup>
-
     <TextView
         android:id="@+id/smokefield"
         android:layout_width="129dp"
@@ -156,10 +118,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="332dp"
-        android:layout_marginRight="323dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginRight="256dp"
         android:text="Smoking" />
 
     <RadioGroup
@@ -172,7 +134,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="161dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="332dp"
+        android:layout_marginTop="244dp"
         android:layout_marginRight="50dp">
 
         <RadioButton
@@ -196,10 +158,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="415dp"
-        android:layout_marginRight="309dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="317dp"
+        android:layout_marginRight="257dp"
         android:text="User Name" />
 
     <EditText
@@ -210,10 +172,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="173dp"
-        android:layout_marginLeft="173dp"
-        android:layout_marginTop="413dp"
-        android:layout_marginRight="85dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginLeft="168dp"
+        android:layout_marginTop="317dp"
+        android:layout_marginRight="65dp"
         android:ems="10"
         android:hint="Enter User Name"
         android:inputType="textPersonName" />
@@ -226,10 +188,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="472dp"
-        android:layout_marginRight="316dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="379dp"
+        android:layout_marginRight="257dp"
         android:text="Password" />
 
     <EditText
@@ -240,10 +202,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="175dp"
-        android:layout_marginLeft="175dp"
-        android:layout_marginTop="474dp"
-        android:layout_marginRight="23dp"
+        android:layout_marginStart="167dp"
+        android:layout_marginLeft="167dp"
+        android:layout_marginTop="381dp"
+        android:layout_marginRight="66dp"
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword" />
@@ -262,5 +224,18 @@
         android:layout_marginRight="113dp"
         android:text="Fill Your Information"
         android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/bmifield"
+        android:layout_width="178dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="169dp"
+        android:layout_marginLeft="169dp"
+        android:layout_marginTop="179dp"
+        android:layout_marginRight="64dp" />
 
 </RelativeLayout>
