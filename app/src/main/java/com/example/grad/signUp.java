@@ -14,10 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class signUp extends AppCompatActivity {
     EditText user, password,age;
-   private RadioGroup smoking,gender;
+    RadioGroup smoking,gender,male,female;
     Button sign;
     Spinner bmi;
-   private String  gen,smok;
+    String  gen,smok="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +45,6 @@ public class signUp extends AppCompatActivity {
                 } else if (checkedId == R.id.Female) {
                     gen="Female";
                 }
-                else {
-                    gen="";
-                }
             }
         });
         smoking.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -60,9 +57,6 @@ public class signUp extends AppCompatActivity {
                 } else if (checkedId == R.id.no) {
                     smok="No";
                 }
-                else   {
-                    smok="";
-                }
             }
         });
 
@@ -70,15 +64,23 @@ public class signUp extends AppCompatActivity {
         sign.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (!(age.getText().toString().matches("") || user.getText().toString().matches("")|| password.getText().toString().matches("") )||bmi.getSelectedItem().toString().matches("") ||gen==""||smok=="") {
-                Context context = getApplicationContext();
-                CharSequence text = "Sign up successfully";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-                Intent int1 = new Intent(signUp.this,MainActivity.class);
-                signUp.this.startActivity(int1);
-
+            if (!(age.getText().toString().matches("") || user.getText().toString().matches("")|| password.getText().toString().matches("") )||bmi.getSelectedItem().toString().matches("")) {
+                if (!(gender.getCheckedRadioButtonId() == -1 || smoking.getCheckedRadioButtonId() == -1)) {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Sign up successfully";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                    Intent int1 = new Intent(signUp.this, MainActivity.class);
+                    signUp.this.startActivity(int1);
+                }
+                else{
+                    Context context = getApplicationContext();
+                    CharSequence text = "Fill all Information";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             }
             else {
                 Context context = getApplicationContext();
