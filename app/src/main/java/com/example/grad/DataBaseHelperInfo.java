@@ -25,7 +25,6 @@ public class DataBaseHelperInfo extends SQLiteOpenHelper {
 
     public void insertUser(UserInfo user) {
         ContentValues contentValues = new ContentValues();
-
         contentValues.put("password", user.getPassword());
         contentValues.put("userName", user.getUserName());
         contentValues.put("gender", user.getGender());

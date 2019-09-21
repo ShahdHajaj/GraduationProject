@@ -34,7 +34,7 @@ public class signUp extends AppCompatActivity {
         bmi = (Spinner) findViewById(R.id.bmifield);
         ArrayAdapter objGenderArr = new ArrayAdapter(this, android.R.layout.simple_spinner_item, options);
         bmi.setAdapter(objGenderArr);
-        sign = (Button) findViewById(R.id.signup2);
+        sign = (Button) findViewById(R.id.login);
         gender = (RadioGroup) findViewById(R.id.genderfield);
         smoking = (RadioGroup) findViewById(R.id.smokingfield);
 
@@ -93,7 +93,6 @@ public class signUp extends AppCompatActivity {
                             dataBaseHelper.insertUser(user);
                             finish();
                             Context context = getApplicationContext();
-
                             CharSequence text = "Sign up successfully";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
