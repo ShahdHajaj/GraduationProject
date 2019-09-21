@@ -42,5 +42,9 @@ public class DataBaseHelperInfo extends SQLiteOpenHelper {
         return cursor;
     }
 
-
+    public Cursor getUserByName(String first) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from userinfo  WHERE userName='" + first +"'", null);
+        return cursor;
+    }
 }
