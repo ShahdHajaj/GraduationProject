@@ -1,6 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</LinearLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/health">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="159dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="54dp"
+        android:text="Data From Sensors: "
+        android:textSize="18sp" />
+
+
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="129dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="261dp"
+        android:text="Time" />
+
+
+    <EditText
+        android:id="@+id/timefield"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="77dp"
+        android:ems="10" />
+
+
+
+    <TextView
+        android:id="@+id/weather"
+        android:layout_width="129dp"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="261dp"
+        android:text="Weather" />
+    <EditText
+        android:id="@+id/weatherfield"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="77dp"
+        android:ems="10" />
+    <TextView
+        android:id="@+id/Active"
+        android:layout_width="129dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="261dp"
+        android:text="Active Or Not" />
+
+    <EditText
+        android:id="@+id/activefiled"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="77dp"
+        android:ems="10" />
+    <TextView
+        android:id="@+id/fasten"
+        android:layout_width="129dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="261dp"
+        android:text="Fasten Blood Suger" />
+
+    <EditText
+        android:id="@+id/fastenfiled"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="77dp"
+        android:ems="10" />
+    <TextView
+        android:id="@+id/random"
+        android:layout_width="129dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="261dp"
+        android:text="Random Blood Suger" />
+
+    <EditText
+        android:id="@+id/randomfiled"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="77dp"
+        android:ems="10" />
+</RelativeLayout>
