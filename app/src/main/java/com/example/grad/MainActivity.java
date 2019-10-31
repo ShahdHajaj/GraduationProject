@@ -2,6 +2,7 @@ package com.example.grad;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -201,6 +202,10 @@ public class MainActivity extends AppCompatActivity {
                         if (pass.matches(cursor.getString(1))) {
                             Intent int1 = new Intent(MainActivity.this,login.class);
                             MainActivity.this.startActivity(int1);
+                            SharedPreferences sharedPreference = getSharedPreferences("usernameInfo", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreference.edit();
+                            editor.putString("username", userr);
+                            editor.commit();
                         }
                     }
                 } else

@@ -40,9 +40,9 @@ public class sensorDataBaseHelper extends SQLiteOpenHelper {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM SENSORINFO", null);
         return cursor;
     }
-    public Cursor getDataByID(int ID) {
+    public Cursor getDataByTime(String Time) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from sensorinfo  WHERE id='" + ID +"'", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from SENSORINFO  WHERE Time='" + Time +"'", null);
         return cursor;
     }
 }
