@@ -6,9 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-
-
-
 public class sensorDataBaseHelper extends SQLiteOpenHelper {
 
     public sensorDataBaseHelper(Context context) {
@@ -42,7 +39,7 @@ public class sensorDataBaseHelper extends SQLiteOpenHelper {
     }
     public Cursor getDataByTime(String Time) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from SENSORINFO  WHERE Time='" + Time +"'", null);
+        Cursor cursor = sqLiteDatabase.rawQuery(" SELECT * from SENSORINFO   WHERE  Time='" + Time +"' ORDER BY RANDOM() LIMIT 1", null);
         return cursor;
     }
 }

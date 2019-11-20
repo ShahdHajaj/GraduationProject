@@ -109,6 +109,12 @@ public class MainActivity extends AppCompatActivity {
             sensorinfo.setActive(1);
             sensordatabasehelper.insertRow(sensorinfo);
             sensorinfo.setTime("15:00:00:00");
+            sensorinfo.setWeather("rainy");
+            sensorinfo.setFasten(167);
+            sensorinfo.setRandom(310);
+            sensorinfo.setActive(1);
+            sensordatabasehelper.insertRow(sensorinfo);
+            sensorinfo.setTime("15:00:00:00");
             sensorinfo.setWeather("sunny");
             sensorinfo.setFasten(168);
             sensorinfo.setRandom(300);
