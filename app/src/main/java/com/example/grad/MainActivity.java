@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
     EditText username, password;
 
@@ -109,12 +112,6 @@ public class MainActivity extends AppCompatActivity {
             sensorinfo.setActive(1);
             sensordatabasehelper.insertRow(sensorinfo);
             sensorinfo.setTime("15:00:00:00");
-            sensorinfo.setWeather("rainy");
-            sensorinfo.setFasten(167);
-            sensorinfo.setRandom(310);
-            sensorinfo.setActive(1);
-            sensordatabasehelper.insertRow(sensorinfo);
-            sensorinfo.setTime("15:00:00:00");
             sensorinfo.setWeather("sunny");
             sensorinfo.setFasten(168);
             sensorinfo.setRandom(300);
@@ -131,6 +128,12 @@ public class MainActivity extends AppCompatActivity {
             sensorinfo.setFasten(187);
             sensorinfo.setRandom(220);
             sensorinfo.setActive(0);
+            sensordatabasehelper.insertRow(sensorinfo);
+            sensorinfo.setTime("17:00:00:00");
+            sensorinfo.setWeather("rainy");
+            sensorinfo.setFasten(187);
+            sensorinfo.setRandom(320);
+            sensorinfo.setActive(1);
             sensordatabasehelper.insertRow(sensorinfo);
             sensorinfo.setTime("18:00:00:00");
             sensorinfo.setWeather("cloudy");
@@ -174,8 +177,9 @@ public class MainActivity extends AppCompatActivity {
             sensorinfo.setRandom(245);
             sensorinfo.setActive(0);
             sensordatabasehelper.insertRow(sensorinfo);
-
         }
+
+
 
         Button butt1 = (Button)findViewById(R.id.signup1);
         butt1.setOnClickListener(new View.OnClickListener() {
@@ -183,8 +187,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent int1 = new Intent(MainActivity.this,signUp.class);
                 MainActivity.this.startActivity(int1);
+
+                Intent intent = new Intent(MainActivity.this,MyService.class);
+                startService(intent);
             }
-           });
+        });
 
         Button butt2 = (Button)findViewById(R.id.login);
         username = (EditText) findViewById(R.id.namefiled);
@@ -192,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
         butt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 if (!(username.getText().toString().matches("") || password.getText().toString().matches(""))) {
                     DataBaseHelperInfo dataBaseHelper = new DataBaseHelperInfo(MainActivity.this);
@@ -222,7 +230,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }
-
+                Intent intent = new Intent(MainActivity.this,MyService.class);
+                startService(intent);
             }
         });
 
@@ -233,4 +242,3 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 }
-
