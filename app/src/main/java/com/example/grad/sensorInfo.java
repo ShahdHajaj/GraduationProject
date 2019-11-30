@@ -1,11 +1,14 @@
 package com.example.grad;
+
 import java.util.Date;
+
 public class sensorInfo {
     String weather;
-    String  time;
-    int  fasten;
-    int  random;
+    String time;
+    int fasten;
+    int random;
     int active;
+    int eat;
 
     public sensorInfo() {
     }
@@ -46,7 +49,16 @@ public class sensorInfo {
         return active;
     }
 
+    public int getEat() {
+        return eat;
+    }
+
     public void setActive(int active) {
         this.active = active;
+
+    }
+
+    public void setEat(int eat) {
+        this.eat = eat;
     }
 }

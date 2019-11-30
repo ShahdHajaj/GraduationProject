@@ -21,13 +21,13 @@ class MyService : Service() {
     val SERVERPORT = 8888
 
     val SERVER_IP = "10.0.2.2"
+    var information = ""
 
     private val periodicUpdate = object : Runnable {
         override fun run() {
             handler.postDelayed(this, 10 * 1000 - SystemClock.elapsedRealtime() % 1000)
             // onTaskRemoved(intent);
-            var clientThread =  ClientThread()
-            Thread(clientThread).start()
+            information = ""
 
             val sdf = java.text.SimpleDateFormat("HH:mm:ss")
             val currentDateandTime = sdf.format(java.util.Date())
@@ -46,12 +46,22 @@ class MyService : Service() {
                         applicationContext, text,
                         Toast.LENGTH_SHORT
                     ).show()
-                } else{
+                } else {
                 }
                 Toast.makeText(
-                    applicationContext,cursor.getString(1),
+                    applicationContext, cursor.getString(1),
                     Toast.LENGTH_SHORT
                 ).show()
+
+                information += cursor2.getString(3) + " " + cursor2.getString(4) + " " + cursor2.getString(
+                    5
+                ) + " " + cursor2.getString(
+                    6
+                ) + " " + cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3) + " " + cursor.getString(
+                    4
+                ) + " " + cursor.getString(5) + " " + cursor.getString(6)
+                var clientThread = ClientThread()
+                Thread(clientThread).start()
 //                if (cursor.getString(5).matches("0".toRegex())) {
 //                    Toast.makeText(
 //                        applicationContext,"Not Active",
@@ -109,7 +119,7 @@ class MyService : Service() {
             try {
                 val serverAddr = InetAddress.getByName(SERVER_IP)
                 socket = Socket(serverAddr, SERVERPORT)
-                sendMessage("shahd")
+                sendMessage(information)
 
                 while (!Thread.currentThread().isInterrupted) {
 

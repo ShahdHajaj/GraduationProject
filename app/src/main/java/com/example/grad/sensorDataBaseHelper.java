@@ -14,7 +14,7 @@ public class sensorDataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE SENSORINFO(ID PRIMARY KEY,weather TEXT,time TEXT,fasten TEXT, random TEXT ,active TEXT )");
+        db.execSQL("CREATE TABLE SENSORINFO(ID PRIMARY KEY,weather TEXT,time TEXT,fasten TEXT, random TEXT ,active TEXT, eat TEXT )");
     }
 
     @Override
@@ -27,6 +27,7 @@ public class sensorDataBaseHelper extends SQLiteOpenHelper {
         contentValues.put("Fasten", user.getFasten());
         contentValues.put("Random", user.getRandom());
         contentValues.put("Active", user.getActive());
+        contentValues.put("Eat", user.getEat());
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         sqLiteDatabase.insert("sensorinfo", null, contentValues);
