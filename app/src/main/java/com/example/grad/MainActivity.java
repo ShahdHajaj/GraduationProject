@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         sensorDataBaseHelper sensordatabasehelper = new sensorDataBaseHelper(MainActivity.this );
         Cursor cursor = sensordatabasehelper.getAllData();
         if (!cursor.moveToFirst()) {
@@ -230,8 +229,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }
-                Intent intent = new Intent(MainActivity.this,MyService.class);
-                startService(intent);
+
             }
         });
 

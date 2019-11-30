@@ -1,6 +1,7 @@
 package com.example.grad;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -58,6 +59,8 @@ public class login extends AppCompatActivity {
             }
             textView4.setText(cursor.getString(3));
             textView5.setText(cursor.getString(4));
+            Intent intent = new Intent(login.this,MyService.class);
+            startService(intent);
 
         }
 
