@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +13,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     EditText username, password;
@@ -23,26 +21,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        String pythonScriptPath = "C:\\Users\\Shahd Hajaj\\Desktop\\GraduationProject1\\app\\server.py";
-//        Process p;
-//        try {
-//            p = Runtime.getRuntime().exec(new String[]{pythonScriptPath});
-//            Context context = getApplicationContext();
-//            CharSequence text = "process success";
-//            int duration = Toast.LENGTH_SHORT;
-//            Toast toast = Toast.makeText(context, text, duration);
-//            toast.show();
-//
-//        } catch (IOException e) {
-//            Context context = getApplicationContext();
-//            CharSequence text = "process fails";
-//            int duration = Toast.LENGTH_SHORT;
-//            Toast toast = Toast.makeText(context, text, duration);
-//            toast.show();
-//            e.printStackTrace();
-//        }
-
-        Client client = new Client("127.0.0.1", 8888, "shahd");
         sensorDataBaseHelper sensordatabasehelper = new sensorDataBaseHelper(MainActivity.this );
         Cursor cursor = sensordatabasehelper.getAllData();
         if (!cursor.moveToFirst()) {
@@ -207,15 +185,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent int1 = new Intent(MainActivity.this,signUp.class);
                 MainActivity.this.startActivity(int1);
-
-                Intent intent = new Intent(MainActivity.this,MyService.class);
-                startService(intent);
             }
         });
 
         Button butt2 = (Button)findViewById(R.id.login);
         username = (EditText) findViewById(R.id.namefiled);
         password = (EditText) findViewById(R.id.passwordfield);
+
         butt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -241,6 +217,10 @@ public class MainActivity extends AppCompatActivity {
                             editor.putString("username", userr);
                             editor.commit();
                         }
+
+                        Intent intent = new Intent(MainActivity.this,MyService.class);
+                        startService(intent);
+
                     }
                 } else
                 {
@@ -261,3 +241,4 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 }
+
