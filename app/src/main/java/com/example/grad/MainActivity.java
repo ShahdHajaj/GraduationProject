@@ -23,24 +23,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String pythonScriptPath = "C:\\Users\\Shahd Hajaj\\Desktop\\GraduationProject1\\app\\server.py";
-        Process p;
-        try {
-            p = Runtime.getRuntime().exec(new String[]{pythonScriptPath});
-            Context context = getApplicationContext();
-            CharSequence text = "process success";
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+//        String pythonScriptPath = "C:\\Users\\Shahd Hajaj\\Desktop\\GraduationProject1\\app\\server.py";
+//        Process p;
+//        try {
+//            p = Runtime.getRuntime().exec(new String[]{pythonScriptPath});
+//            Context context = getApplicationContext();
+//            CharSequence text = "process success";
+//            int duration = Toast.LENGTH_SHORT;
+//            Toast toast = Toast.makeText(context, text, duration);
+//            toast.show();
+//
+//        } catch (IOException e) {
+//            Context context = getApplicationContext();
+//            CharSequence text = "process fails";
+//            int duration = Toast.LENGTH_SHORT;
+//            Toast toast = Toast.makeText(context, text, duration);
+//            toast.show();
+//            e.printStackTrace();
+//        }
 
-        } catch (IOException e) {
-            Context context = getApplicationContext();
-            CharSequence text = "process fails";
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-            e.printStackTrace();
-        }
+        Client client = new Client("127.0.0.1", 8888, "shahd");
         sensorDataBaseHelper sensordatabasehelper = new sensorDataBaseHelper(MainActivity.this );
         Cursor cursor = sensordatabasehelper.getAllData();
         if (!cursor.moveToFirst()) {
