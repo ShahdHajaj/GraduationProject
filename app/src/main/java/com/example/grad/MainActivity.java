@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String pythonScriptPath = "C:\\Users\\Shahd Hajaj\\Desktop\\graduationProjectPythonCodes\\server.py";
+        String pythonScriptPath = "C:\\Users\\Shahd Hajaj\\Desktop\\GraduationProject1\\app\\server.py";
         Process p;
         try {
             p = Runtime.getRuntime().exec(new String[]{pythonScriptPath});
