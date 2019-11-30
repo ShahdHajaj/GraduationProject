@@ -28,12 +28,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class login extends AppCompatActivity {
 
-    public static final int SERVERPORT = 8888;
-
-    public static final String SERVER_IP = "10.0.2.2";
-    private ClientThread clientThread;
-    private Thread thread;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -47,10 +41,7 @@ public class login extends AppCompatActivity {
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         String currentDateandTime = sdf.format(new Date());
-        clientThread = new ClientThread();
-        thread = new Thread(clientThread);
-        thread.start();
-//        clientThread.sendMessage("shahd");
+
 
         textView1.setText(currentDateandTime);
         sensorDataBaseHelper dataBaseHelper = new sensorDataBaseHelper(login.this);
@@ -82,60 +73,6 @@ public class login extends AppCompatActivity {
             Intent intent = new Intent(login.this,MyService.class);
             startService(intent);
 
-        }
-
-    }
-    class ClientThread implements Runnable {
-
-        private Socket socket;
-        private BufferedReader input;
-
-        @Override
-        public void run() {
-
-            try {
-                InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
-                socket = new Socket(serverAddr, SERVERPORT);
-                sendMessage("shahd");
-
-                while (!Thread.currentThread().isInterrupted()) {
-
-                    this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    String message = input.readLine();
-                    if (null == message || "Disconnect".contentEquals(message)) {
-                        Thread.interrupted();
-                        message = "Server Disconnected.";
-                        break;
-                    }
-
-                }
-            } catch (UnknownHostException e1) {
-                e1.printStackTrace();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-
-        }
-
-        void sendMessage(final String message) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        if (null != socket) {
-                            PrintWriter out = new PrintWriter(new BufferedWriter(
-                                    new OutputStreamWriter(socket.getOutputStream())),
-                                    true);
-                            out.write(message);
-//                            out.println(message);
-                            out.flush();
-
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }).start();
         }
 
     }

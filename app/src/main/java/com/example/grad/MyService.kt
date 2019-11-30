@@ -7,6 +7,10 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.SystemClock
 import android.widget.Toast
+import java.io.*
+import java.net.InetAddress
+import java.net.Socket
+import java.net.UnknownHostException
 
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
@@ -14,10 +18,17 @@ import java.util.concurrent.ScheduledExecutorService
 class MyService : Service() {
     internal var scheduler = Executors.newSingleThreadScheduledExecutor()
     internal var handler = Handler()
+    val SERVERPORT = 8888
+
+    val SERVER_IP = "10.0.2.2"
+
     private val periodicUpdate = object : Runnable {
         override fun run() {
             handler.postDelayed(this, 10 * 1000 - SystemClock.elapsedRealtime() % 1000)
             // onTaskRemoved(intent);
+            var clientThread =  ClientThread()
+            Thread(clientThread).start()
+
             val sdf = java.text.SimpleDateFormat("HH:mm:ss")
             val currentDateandTime = sdf.format(java.util.Date())
             val dataBaseHelper = sensorDataBaseHelper(this@MyService)
@@ -85,5 +96,60 @@ class MyService : Service() {
         restartServiceIntent.setPackage(packageName)
         startService(restartServiceIntent)
         super.onTaskRemoved(rootIntent)
+    }
+
+
+    internal inner class ClientThread : Runnable {
+
+        private var socket: Socket? = null
+        private var input: BufferedReader? = null
+
+        override fun run() {
+
+            try {
+                val serverAddr = InetAddress.getByName(SERVER_IP)
+                socket = Socket(serverAddr, SERVERPORT)
+                sendMessage("shahd")
+
+                while (!Thread.currentThread().isInterrupted) {
+
+                    this.input = BufferedReader(InputStreamReader(socket!!.getInputStream()))
+                    var message: String? = input!!.readLine()
+                    if (null == message || "Disconnect".contentEquals(message)) {
+                        Thread.interrupted()
+                        message = "Server Disconnected."
+                        break
+                    }
+
+                }
+            } catch (e1: UnknownHostException) {
+                e1.printStackTrace()
+            } catch (e1: IOException) {
+                e1.printStackTrace()
+            }
+
+        }
+
+        fun sendMessage(message: String) {
+            Thread(Runnable {
+                try {
+                    if (null != socket) {
+                        val out = PrintWriter(
+                            BufferedWriter(
+                                OutputStreamWriter(socket!!.getOutputStream())
+                            ),
+                            true
+                        )
+                        out.write(message)
+                        //                            out.println(message);
+                        out.flush()
+
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }).start()
+        }
+
     }
 }
