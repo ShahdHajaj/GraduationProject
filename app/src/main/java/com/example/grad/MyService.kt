@@ -41,28 +41,28 @@ class MyService : Service() {
                     applicationContext,cursor.getString(1),
                     Toast.LENGTH_SHORT
                 ).show()
-                if (cursor.getString(5).matches("0".toRegex())) {
-                    Toast.makeText(
-                        applicationContext,"Not Active",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    //textView3.setText("Not Active")
-                } else {
-                    Toast.makeText(
-                        applicationContext,"Active",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    //textView3.setText("Active")
-
-                }
-                Toast.makeText(
-                    applicationContext,cursor.getString(3),
-                    Toast.LENGTH_SHORT
-                ).show()
-                Toast.makeText(
-                    applicationContext,cursor.getString(4),
-                    Toast.LENGTH_SHORT
-                ).show()
+//                if (cursor.getString(5).matches("0".toRegex())) {
+//                    Toast.makeText(
+//                        applicationContext,"Not Active",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    //textView3.setText("Not Active")
+//                } else {
+//                    Toast.makeText(
+//                        applicationContext,"Active",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    //textView3.setText("Active")
+//
+//                }
+//                Toast.makeText(
+//                    applicationContext,cursor.getString(3),
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//                Toast.makeText(
+//                    applicationContext,cursor.getString(4),
+//                    Toast.LENGTH_SHORT
+//                ).show()
                 //textView4.setText(cursor.getString(3))
                 //textView5.setText(cursor.getString(4))
             }

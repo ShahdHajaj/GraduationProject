@@ -50,7 +50,7 @@ public class login extends AppCompatActivity {
         clientThread = new ClientThread();
         thread = new Thread(clientThread);
         thread.start();
-        clientThread.sendMessage("shahd");
+//        clientThread.sendMessage("shahd");
 
         textView1.setText(currentDateandTime);
         sensorDataBaseHelper dataBaseHelper = new sensorDataBaseHelper(login.this);
@@ -96,6 +96,7 @@ public class login extends AppCompatActivity {
             try {
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
                 socket = new Socket(serverAddr, SERVERPORT);
+                sendMessage("shahd");
 
                 while (!Thread.currentThread().isInterrupted()) {
 
@@ -104,12 +105,10 @@ public class login extends AppCompatActivity {
                     if (null == message || "Disconnect".contentEquals(message)) {
                         Thread.interrupted();
                         message = "Server Disconnected.";
-
                         break;
                     }
 
                 }
-
             } catch (UnknownHostException e1) {
                 e1.printStackTrace();
             } catch (IOException e1) {
@@ -127,7 +126,10 @@ public class login extends AppCompatActivity {
                             PrintWriter out = new PrintWriter(new BufferedWriter(
                                     new OutputStreamWriter(socket.getOutputStream())),
                                     true);
-                            out.println(message);
+                            out.write(message);
+//                            out.println(message);
+                            out.flush();
+
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

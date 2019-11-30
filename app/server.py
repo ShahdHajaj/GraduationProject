@@ -25,5 +25,8 @@ while 1:
     #esperando conecccion 
     conn, addr = s.accept()
     print ('Connected with ' + addr[0] + ':' + str(addr[1]))
-     
+    data = conn.recv(1204)
+    response = ""
+    receivedData = data.decode()
+    print(receivedData)
 s.close()
