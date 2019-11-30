@@ -30,20 +30,20 @@ public class Client {
         }
 
         // string to read message from input
-//        try {
-//
-//            out.writeUTF(line);
-//        } catch (IOException i) {
-//            System.out.println(i);
-//        }
-//
-//        // close the connection
-//        try {
-//            input.close();
-//            out.close();
-//            socket.close();
-//        } catch (IOException i) {
-//            System.out.println(i);
-//        }
+        try {
+
+            out.writeUTF(line);
+        } catch (IOException i) {
+            System.out.println(i);
+        }
+
+        // close the connection
+        try {
+            input.close();
+            out.close();
+            socket.close();
+        } catch (IOException i) {
+            System.out.println(i);
+        }
     }
 }
