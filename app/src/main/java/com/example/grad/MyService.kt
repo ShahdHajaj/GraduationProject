@@ -33,7 +33,7 @@ class MyService : Service() {
             val currentDateandTime = sdf.format(java.util.Date())
             val dataBaseHelper = sensorDataBaseHelper(this@MyService)
             val cursor =
-                dataBaseHelper.getDataByTime(currentDateandTime.split(":".toRegex()).dropLastWhile({ it.isEmpty() }).toTypedArray()[0] + ":00:00:00")
+                dataBaseHelper.getDataByTime(currentDateandTime.split(":".toRegex()).dropLastWhile({ it.isEmpty() }).toTypedArray()[0].drop(0) + ":00:00:00")
             if (cursor.moveToFirst()) {
                 val sharedPreference = getSharedPreferences("usernameInfo", Context.MODE_PRIVATE)
                 val username = sharedPreference.getString("username", "")
